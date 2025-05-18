@@ -1,17 +1,10 @@
-'use client'
-
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-
 interface PostProps {
   params: {
     id: string
   }
 }
 
-const posts: Record<
-  string,
-  { titulo: string; conteudo: string; imagem: string }
-> = {
+const posts: Record<string, { titulo: string; conteudo: string; imagem: string }> = {
   '1': {
     titulo: 'Tecnologia da Informação',
     conteudo: `Explore as últimas tendências em TI e como elas estão transformando o mundo dos negócios e a vida cotidiana. 
@@ -51,19 +44,17 @@ const PostPage = ({ params }: PostProps) => {
 
   return (
     <div className="max-w-3xl mx-auto p-6">
-      <Card className="shadow-lg">
+      <div className="shadow-lg rounded-lg overflow-hidden">
         <img
           src={post.imagem}
           alt={post.titulo}
-          className="w-full h-64 object-cover rounded-t-lg"
+          className="w-full h-64 object-cover"
         />
-        <CardHeader>
-          <CardTitle className="text-2xl mt-4">{post.titulo}</CardTitle>
-        </CardHeader>
-        <CardContent>
+        <div className="p-6">
+          <h1 className="text-2xl font-bold mb-4">{post.titulo}</h1>
           <p className="text-gray-700 leading-relaxed whitespace-pre-line">{post.conteudo}</p>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   )
 }
