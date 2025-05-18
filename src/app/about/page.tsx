@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 const Sobre = () => {
   return (
     <section className="max-w-7xl mx-auto px-6 py-16 bg-gray-50 text-gray-800 mt-[100px]">
@@ -18,18 +20,19 @@ const Sobre = () => {
         </div>
 
         {/* Imagem */}
-        <div className="md:w-1/2 flex justify-center">
-          <img
+        <div className="md:w-1/2 flex justify-center relative w-full max-w-[600px] h-[450px] rounded-lg shadow-lg overflow-hidden">
+          <Image
             src="/sobre.jpg"
             alt="Sobre Nós"
-            className="rounded-lg shadow-lg max-w-full h-[450px] object-cover"
+            fill
+            style={{ objectFit: 'cover' }}
+            priority
           />
         </div>
 
-
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Sobre;
+export default Sobre

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react'; // REMOVIDO useState
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import Image from 'next/image';
@@ -24,7 +24,6 @@ const slides = [
     titulo: 'Design e Ergonomia',
     subtitulo: 'Interfaces intuitivas e elegantes para a melhor experiência do usuário.',
   }
-
 ];
 
 const Carousel = () => {

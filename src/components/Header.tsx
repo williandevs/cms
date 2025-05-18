@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import TopBar from './TopBar';
 
@@ -14,23 +15,27 @@ const Header: React.FC = () => {
 
   return (
     <>
-
       <TopBar />
       <header className="bg-white shadow-md">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           {/* Logo */}
-          <img
-            src="/logo.png"
-            alt="Logo Meu Site"
-            className="h-12 w-auto"
-          />
-
+          <Link href="/" aria-label="Ir para a página inicial">
+            <Image
+              src="/logo.png"
+              alt="Logo Meu Site"
+              width={150}
+              height={48}
+              className="object-contain"
+              priority
+            />
+          </Link>
 
           {/* Ícone do menu mobile */}
           <button
             onClick={toggleMenu}
             className="md:hidden text-gray-700"
             aria-label="Menu"
+            aria-expanded={menuOpen}
           >
             {menuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -41,7 +46,7 @@ const Header: React.FC = () => {
             <Link href="/about" className="hover:text-blue-600">Sobre</Link>
             <Link href="/services" className="hover:text-blue-600">Serviços</Link>
             <Link href="/plans" className="hover:text-blue-600">Planos</Link>
-            <Link href="/galery" className="hover:text-blue-600">Galeria</Link>
+            <Link href="/galeria" className="hover:text-blue-600">Galeria</Link>
             <Link href="/blog" className="hover:text-blue-600">Blog</Link>
             <Link href="/contact" className="hover:text-blue-600">Contato</Link>
           </nav>
@@ -54,15 +59,13 @@ const Header: React.FC = () => {
             <Link href="/about" onClick={() => setMenuOpen(false)} className="block hover:text-blue-600">Sobre</Link>
             <Link href="/services" onClick={() => setMenuOpen(false)} className="block hover:text-blue-600">Serviços</Link>
             <Link href="/plans" onClick={() => setMenuOpen(false)} className="block hover:text-blue-600">Planos</Link>
-            <Link href="/galery" onClick={() => setMenuOpen(false)} className="block hover:text-blue-600">Galeria</Link>
+            <Link href="/galeria" onClick={() => setMenuOpen(false)} className="block hover:text-blue-600">Galeria</Link>
             <Link href="/blog" onClick={() => setMenuOpen(false)} className="block hover:text-blue-600">Blog</Link>
             <Link href="/contact" onClick={() => setMenuOpen(false)} className="block hover:text-blue-600">Contato</Link>
           </nav>
         )}
       </header>
     </>
-
-
   );
 };
 

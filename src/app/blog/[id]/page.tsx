@@ -1,10 +1,12 @@
-interface PostProps {
-  params: {
-    id: string
-  }
+import Image from 'next/image'
+
+interface Post {
+  titulo: string
+  conteudo: string
+  imagem: string
 }
 
-const posts: Record<string, { titulo: string; conteudo: string; imagem: string }> = {
+const posts: Record<string, Post> = {
   '1': {
     titulo: 'Tecnologia da Informação',
     conteudo: `Explore as últimas tendências em TI e como elas estão transformando o mundo dos negócios e a vida cotidiana. 
@@ -31,12 +33,16 @@ Veja como machine learning e deep learning estão sendo aplicados para resolver 
   },
 }
 
-const PostPage = ({ params }: PostProps) => {
+export async function generateStaticParams() {
+  return Object.keys(posts).map((id) => ({ id }))
+}
+
+const PostPage = async ({ params }: { params: { id: string } }) => {
   const post = posts[params.id]
 
   if (!post) {
     return (
-      <div className="p-6 text-center text-red-500">
+      <div className="p-6 text-center text-red-500 font-semibold">
         Post não encontrado
       </div>
     )
@@ -45,11 +51,15 @@ const PostPage = ({ params }: PostProps) => {
   return (
     <div className="max-w-3xl mx-auto p-6">
       <div className="shadow-lg rounded-lg overflow-hidden">
-        <img
-          src={post.imagem}
-          alt={post.titulo}
-          className="w-full h-64 object-cover"
-        />
+        <div className="relative w-full h-64">
+          <Image
+            src={post.imagem}
+            alt={post.titulo}
+            layout="fill"
+            objectFit="cover"
+            priority={false}
+          />
+        </div>
         <div className="p-6">
           <h1 className="text-2xl font-bold mb-4">{post.titulo}</h1>
           <p className="text-gray-700 leading-relaxed whitespace-pre-line">{post.conteudo}</p>
