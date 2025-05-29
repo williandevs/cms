@@ -12,7 +12,7 @@ const Sobre = () => {
             Na <span className="font-semibold text-blue-600">S4MD</span>, transformamos ideias em soluções digitais inovadoras. Somos uma equipe apaixonada por tecnologia e design, dedicada a criar websites e aplicações que aliam performance, usabilidade e estética.
           </p>
           <p className="text-lg leading-relaxed mb-4">
-            Com foco em inovação e nas melhores práticas do mercado, desenvolvemos projetos sob medida para atender às necessidades únicas de cada cliente. Desde sites institucionais até plataformas complexas, nossa missão é entregar resultados que superem expectativas.
+            Com foco em inovação e nas melhores práticas do mercado, desenvolvemos projetos sob medida para atender às necessidades únicas de cada cliente. Desde sites institucionais até plataformas complexas, nossa missão é entregar resultados que superem expectativas sdfsfsdfsdf.
           </p>
           <p className="text-lg leading-relaxed">
             Aqui, acreditamos que a tecnologia deve ser acessível e eficiente, proporcionando experiências digitais que conectam marcas e pessoas de forma simples e impactante.
